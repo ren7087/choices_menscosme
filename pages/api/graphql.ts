@@ -1,42 +1,13 @@
 import { ApolloServer, gql } from "apollo-server-micro";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
-const typeDefs = gql`
-  type User {
-    id: ID!
-    name: String!
-    email: String!
-  }
-
-  type Query {
-    hello: String
-    users: [User]
-  }
-`;
-
-interface Context {
-  prisma: PrismaClient;
-}
-
-const resolvers = {
-  Query: {
-    hello: () => "Hello World",
-    users: async (parent: undefined, args: {}, context: Context) => {
-      return await context.prisma.user.findMany();
-    },
-  },
-};
+import { typeDefs } from "../../graphql/schema";
+import { resolvers } from "../../graphql/resolvers";
+import { createContext } from "../../graphql/context";
 
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  context: {
-    prisma,
-  },
+  context: createContext,
 });
 
 const startServer = apolloServer.start();
