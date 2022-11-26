@@ -4,7 +4,13 @@ import Image from "next/image";
 
 import styles from "../styles/Home.module.css";
 import stylesButton from "../styles/layouts/Button.module.css";
-import { Button, Container, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  Typography,
+} from "@mui/material";
 
 import { gql, useQuery } from "@apollo/client";
 
@@ -16,7 +22,19 @@ import { GET_ALL_USERS } from "../queries/queries";
 const Home: NextPage = () => {
   const { data, loading, error } = useQuery(GET_ALL_USERS);
 
-  if (loading) return <p>ローディング中です</p>;
+  if (loading)
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress
+          style={{
+            textAlign: "center",
+            marginTop: "20%",
+            marginBottom: "20%",
+            marginLeft: "50%",
+          }}
+        />
+      </Box>
+    );
   if (error) return <p>エラーが発生しています</p>;
 
   const { users } = data;

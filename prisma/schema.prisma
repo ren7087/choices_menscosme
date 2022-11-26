@@ -16,12 +16,12 @@ model Account {
   type               String
   provider           String
   providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
   expires_at         Int?
   token_type         String?
   scope              String?
-  id_token           String?  @db.Text
+  id_token           String? @db.Text
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
@@ -55,4 +55,128 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Lip {
+  id          String        @id @default(cuid())
+  name        String?       @db.VarChar(100)
+  price       Int?
+  color       String?       @db.VarChar(100)
+  size        String?       @db.VarChar(100)
+  description String?       @db.Text
+  image       String?
+  lipTypes    Lip2LipType[]
+
+  @@map("lips")
+}
+
+model Lip2LipType {
+  lip       Lip     @relation(fields: [lipId], references: [id])
+  lipId     String  @map("lip_id") @db.VarChar(100)
+  lipType   LipType @relation(fields: [lipTypeId], references: [id])
+  lipTypeId String  @map("lipType_id") @db.VarChar(100)
+
+  @@id([lipId, lipTypeId])
+  @@map("lip_lipType")
+}
+
+model LipType {
+  id   String        @id @default(cuid())
+  name String        @unique @db.VarChar(20)
+  lips Lip2LipType[]
+
+  @@map("lipTypes")
+}
+
+model Perfume {
+  id           String                @id @default(cuid())
+  name         String?               @db.VarChar(100)
+  price        Int?
+  color        String?               @db.VarChar(100)
+  size         String?               @db.VarChar(100)
+  description  String?               @db.Text
+  image        String?
+  perfumeTypes Perfume2PerfumeType[]
+
+  @@map("perfumes")
+}
+
+model Perfume2PerfumeType {
+  perfume       Perfume     @relation(fields: [perfumeId], references: [id])
+  perfumeId     String      @map("perfume_id") @db.VarChar(100)
+  perfumeType   PerfumeType @relation(fields: [perfumeTypeId], references: [id])
+  perfumeTypeId String      @map("perfumeype_id") @db.VarChar(100)
+
+  @@id([perfumeId, perfumeTypeId])
+  @@map("perfume_perfumeType")
+}
+
+model PerfumeType {
+  id       String                @id @default(cuid())
+  name     String                @unique @db.VarChar(20)
+  perfumes Perfume2PerfumeType[]
+
+  @@map("perfumeTypes")
+}
+
+model Skin {
+  id          String          @id @default(cuid())
+  name        String?         @db.VarChar(100)
+  price       Int?
+  color       String?         @db.VarChar(100)
+  size        String?         @db.VarChar(100)
+  description String?         @db.Text
+  image       String?
+  skinTypes   Skin2SkinType[]
+
+  @@map("skins")
+}
+
+model Skin2SkinType {
+  skin       Skin     @relation(fields: [skinId], references: [id])
+  skinId     String   @map("skin_id") @db.VarChar(100)
+  skinType   SkinType @relation(fields: [skinTypeId], references: [id])
+  skinTypeId String   @map("skinType_id") @db.VarChar(100)
+
+  @@id([skinId, skinTypeId])
+  @@map("skin_skinType")
+}
+
+model SkinType {
+  id    String          @id @default(cuid())
+  name  String          @unique @db.VarChar(20)
+  skins Skin2SkinType[]
+
+  @@map("skinTypes")
+}
+
+model Hair {
+  id          String          @id @default(cuid())
+  name        String?         @db.VarChar(100)
+  price       Int?
+  color       String?         @db.VarChar(100)
+  size        String?         @db.VarChar(100)
+  description String?         @db.Text
+  image       String?
+  hairTypes   Hair2HairType[]
+
+  @@map("hairs")
+}
+
+model Hair2HairType {
+  hair       Hair     @relation(fields: [hairId], references: [id])
+  hairId     String   @map("hair_id") @db.VarChar(100)
+  hairType   HairType @relation(fields: [hairTypeId], references: [id])
+  hairTypeId String   @map("hairType_id") @db.VarChar(100)
+
+  @@id([hairId, hairTypeId])
+  @@map("hair_hairType")
+}
+
+model HairType {
+  id    String          @id @default(cuid())
+  name  String          @unique @db.VarChar(20)
+  hairs Hair2HairType[]
+
+  @@map("hairTypes")
 }
