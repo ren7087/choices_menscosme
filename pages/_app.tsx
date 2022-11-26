@@ -1,20 +1,16 @@
 // import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { ApolloProvider } from "@apollo/client";
+import apolloClient from "../lib/apollo";
 import { SessionProvider } from "next-auth/react";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
 import StyledButton from "./components/atoms/styledButton";
 
-const client = new ApolloClient({
-  uri: "/api/graphql",
-  cache: new InMemoryCache(),
-});
-
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>
-      <ApolloProvider client={client}>
+      <ApolloProvider client={apolloClient}>
         <div>
           <Box sx={{ flexGrow: 1 }}>
             <AppBar

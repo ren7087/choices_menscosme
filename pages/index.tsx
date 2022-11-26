@@ -1,28 +1,20 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 
 import styles from "../styles/Home.module.css";
 import stylesButton from "../styles/layouts/Button.module.css";
+import { Button, Container, Typography } from "@mui/material";
 
 import { gql, useQuery } from "@apollo/client";
-import { Button, Container, Typography } from "@mui/material";
-import Image from "next/image";
+
 import Category from "./components/organisms/category";
 import Daily from "./components/organisms/daily";
 import Consult from "./components/organisms/consult";
-
-const GET_USERS = gql`
-  query GetUsers {
-    users {
-      id
-      name
-      email
-    }
-  }
-`;
+import { GET_ALL_USERS } from "../queries/queries";
 
 const Home: NextPage = () => {
-  const { data, loading, error } = useQuery(GET_USERS);
+  const { data, loading, error } = useQuery(GET_ALL_USERS);
 
   if (loading) return <p>ローディング中です</p>;
   if (error) return <p>エラーが発生しています</p>;
