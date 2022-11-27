@@ -139,7 +139,7 @@ const Home: NextPage = () => {
                 fontWeight: "bold",
               }}
             >
-              あなただけのメンズメイクのメイクデータベース
+              あなただけのメンズメイクのデータベース
             </Typography>
           </div>
           <Daily />

@@ -73,6 +73,18 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                   height={"40px"}
                   onClick={() => console.log("clicked")}
                 />
+                <span style={{ marginLeft: "3%" }} />
+                <StyledButton
+                  label={"サインイン"}
+                  backgroundColor={"#ECA7B1"}
+                  color={"white"}
+                  size={"md"}
+                  borderRadius={"10px"}
+                  outline={"none"}
+                  border={"none"}
+                  height={"40px"}
+                  onClick={() => console.log("clicked")}
+                />
               </Toolbar>
             </AppBar>
           </Box>
