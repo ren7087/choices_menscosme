@@ -13,6 +13,7 @@ import BackupIcon from "@mui/icons-material/Backup";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { useRouter } from "next/router";
 import Calendar from "../../components/organisms/daily/calendar";
+import Register from "../../components/organisms/daily/register";
 
 const drawerWidth = 200;
 
@@ -94,7 +95,7 @@ const Index = () => {
           </List>
         </Box>
       </Drawer>
-      <Calendar />
+      <Register />
     </Box>
   );
 };

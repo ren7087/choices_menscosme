@@ -6,8 +6,10 @@ import { SessionProvider } from "next-auth/react";
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
 import StyledButton from "./components/atoms/styledButton";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const router = useRouter();
   return (
     <SessionProvider session={session}>
       <ApolloProvider client={apolloClient}>
@@ -41,7 +43,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                   }}
                 >
                   <Link
-                    href="/"
+                    href="/daily"
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     Daily
@@ -71,7 +73,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                   outline={"none"}
                   border={"none"}
                   height={"40px"}
-                  onClick={() => console.log("clicked")}
+                  onClick={() => router.push("/")}
                 />
                 <span style={{ marginLeft: "3%" }} />
                 <StyledButton
@@ -83,7 +85,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                   outline={"none"}
                   border={"none"}
                   height={"40px"}
-                  onClick={() => console.log("clicked")}
+                  onClick={() => router.push("/auth/signin")}
                 />
               </Toolbar>
             </AppBar>

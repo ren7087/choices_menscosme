@@ -3,36 +3,21 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
+import NearMeIcon from "@mui/icons-material/NearMe";
 import BackupIcon from "@mui/icons-material/Backup";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import LipCard from "../components/molecules/card/lipCard";
-import EyeCard from "../components/molecules/card/eyeCard";
-import HairCard from "../components/molecules/card/hairCard";
-import PerfumeCard from "../components/molecules/card/perfumeCard";
-import SkinCard from "../components/molecules/card/skinCard";
-import { Grid } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import { ChartCircle } from "../components/organisms/chartCircle";
-import { ChartLine } from "../components/organisms/chartLine";
+import { useRouter } from "next/router";
+import Db from "../components/organisms/daily/db";
 
 const drawerWidth = 200;
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
-
-const index = () => {
+const Index = () => {
+  const router = useRouter();
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
@@ -50,124 +35,68 @@ const index = () => {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {["DB", "Calendar", "Submit"].map((text, index) => (
+            {["DB", "Calendar", "Register", "TOPへ戻る"].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 3 === 0 && <InboxIcon />}
-                    {index % 3 === 1 && <CalendarMonthIcon />}
-                    {index % 3 === 2 && <BackupIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
+                {index % 4 === 0 && (
+                  <ListItemButton
+                    onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                      e.preventDefault();
+                      router.push("/daily");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                )}
+                {index % 4 === 1 && (
+                  <ListItemButton
+                    onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                      e.preventDefault();
+                      router.push("/daily/calendar");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <CalendarMonthIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                )}
+                {index % 4 === 2 && (
+                  <ListItemButton
+                    onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                      e.preventDefault();
+                      router.push("/daily/register");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <BackupIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                )}
+                {index % 4 === 3 && (
+                  <ListItemButton
+                    onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+                      e.preventDefault();
+                      router.push("/");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <NearMeIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                )}
               </ListItem>
             ))}
           </List>
         </Box>
       </Drawer>
-      <div style={{ textAlign: "center", margin: "auto", marginTop: "30px" }}>
-        <Grid container spacing={2}>
-          <Grid item xs={2.4}>
-            <Item style={{ boxShadow: "none" }}>
-              <LipCard
-                textAlign={"center"}
-                marginTop={"-30px"}
-                fontWeight={"bold"}
-                onClick={function (
-                  event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                ): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
-            </Item>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Item style={{ boxShadow: "none" }}>
-              <EyeCard
-                textAlign={"center"}
-                marginTop={"-30px"}
-                fontWeight={"bold"}
-                onClick={function (
-                  event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                ): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
-            </Item>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Item style={{ boxShadow: "none" }}>
-              <HairCard
-                textAlign={"center"}
-                marginTop={"-30px"}
-                fontWeight={"bold"}
-                onClick={function (
-                  event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                ): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
-            </Item>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Item style={{ boxShadow: "none" }}>
-              <PerfumeCard
-                textAlign={"center"}
-                marginTop={"-30px"}
-                fontWeight={"bold"}
-                onClick={function (
-                  event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                ): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
-            </Item>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Item style={{ boxShadow: "none" }}>
-              <SkinCard
-                textAlign={"center"}
-                marginTop={"-30px"}
-                fontWeight={"bold"}
-                onClick={function (
-                  event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-                ): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
-            </Item>
-          </Grid>
-        </Grid>
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            maxWidth: "100vw",
-            marginTop: "50px",
-          }}
-        >
-          <Box
-            sx={{
-              width: " 50%",
-              height: 400,
-              backgroundColor: "white",
-            }}
-          >
-            <ChartCircle />
-          </Box>
-          <Box
-            sx={{
-              width: " 50%",
-              height: 400,
-              backgroundColor: "white",
-            }}
-          >
-            <ChartLine />
-          </Box>
-        </div>
-      </div>
+      <Db />
     </Box>
   );
 };
 
-export default index;
+export default Index;
