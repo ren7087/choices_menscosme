@@ -33,7 +33,6 @@ const EyeCard: FC<Props> = (props) => {
   const imageStyle = {
     borderRadius,
     width,
-    marginLeft,
   };
 
   const fontStyle = {
@@ -48,14 +47,14 @@ const EyeCard: FC<Props> = (props) => {
       sx={{ maxWidth: 800 }}
       style={{
         borderRadius: "20px",
-        backgroundColor: "rgb(255, 231, 217)",
-        width: "300px",
+        backgroundColor: "#F8DFD2",
+        width: "auto",
         margin: "5%",
       }}
     >
       <CardActionArea>
         <Image
-          src={"/img/category/lip.png"}
+          src={"/img/category/eye.png"}
           height="150"
           width="150"
           alt="lip"

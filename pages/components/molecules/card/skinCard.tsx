@@ -33,7 +33,6 @@ const SkinCard: FC<Props> = (props) => {
   const imageStyle = {
     borderRadius,
     width,
-    marginLeft,
   };
 
   const fontStyle = {
@@ -48,14 +47,14 @@ const SkinCard: FC<Props> = (props) => {
       sx={{ maxWidth: 400 }}
       style={{
         borderRadius: "20px",
-        backgroundColor: "rgb(255, 231, 217)",
-        width: "100%",
+        backgroundColor: "#DBA1B2",
+        width: "auto",
         margin: "5%",
       }}
     >
       <CardActionArea>
         <Image
-          src={"/img/category/lip.png"}
+          src={"/img/category/skin.png"}
           height="150"
           width="150"
           alt="lip"
@@ -63,7 +62,7 @@ const SkinCard: FC<Props> = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" style={fontStyle}>
-            Lip
+            Skin
           </Typography>
         </CardContent>
       </CardActionArea>

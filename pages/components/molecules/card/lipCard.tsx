@@ -33,7 +33,6 @@ const LipCard: FC<Props> = (props) => {
   const imageStyle = {
     borderRadius,
     width,
-    marginLeft,
   };
 
   const fontStyle = {
@@ -48,8 +47,8 @@ const LipCard: FC<Props> = (props) => {
       sx={{ maxWidth: 400 }}
       style={{
         borderRadius: "20px",
-        backgroundColor: "rgb(255, 231, 217)",
-        width: "100%",
+        backgroundColor: "#F6E7E0",
+        width: "auto",
         margin: "5%",
       }}
     >

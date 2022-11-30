@@ -33,7 +33,6 @@ const HairCard: FC<Props> = (props) => {
   const imageStyle = {
     borderRadius,
     width,
-    marginLeft,
   };
 
   const fontStyle = {
@@ -48,14 +47,14 @@ const HairCard: FC<Props> = (props) => {
       sx={{ maxWidth: 400 }}
       style={{
         borderRadius: "20px",
-        backgroundColor: "rgb(255, 231, 217)",
-        width: "100%",
+        backgroundColor: "#F8C4CF",
+        width: "auto",
         margin: "5%",
       }}
     >
       <CardActionArea>
         <Image
-          src={"/img/category/lip.png"}
+          src={"/img/category/hairoil.png"}
           height="150"
           width="150"
           alt="lip"
@@ -63,7 +62,7 @@ const HairCard: FC<Props> = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" style={fontStyle}>
-            Lip
+            Hair
           </Typography>
         </CardContent>
       </CardActionArea>
