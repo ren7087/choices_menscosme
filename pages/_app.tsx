@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                   outline={"none"}
                   border={"none"}
                   height={"40px"}
-                  onClick={() => router.push("/")}
+                  onClick={() => router.push("/auth/signin")}
                 />
                 <span style={{ marginLeft: "3%" }} />
                 <StyledButton

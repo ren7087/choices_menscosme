@@ -51,6 +51,9 @@ const LipCard: FC<Props> = (props) => {
         width: "auto",
         margin: "5%",
       }}
+      onClick={() => {
+        setLip(true);
+      }}
     >
       <CardActionArea>
         <Image

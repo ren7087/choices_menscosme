@@ -30,6 +30,7 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
@@ -37,15 +38,18 @@ model Session {
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id             String           @id @default(cuid())
+  name           String?
+  email          String?          @unique
+  emailVerified  DateTime?
+  image          String?
+  accounts       Account[]
+  sessions       Session[]
+  questionnaires Questionnaires[]
 }
+
 model VerificationToken {
   identifier String
   token      String   @unique
@@ -53,10 +57,6 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
-
-
-
-
 
 model Lip {
   id          String        @id @default(cuid())
@@ -70,6 +70,7 @@ model Lip {
 
   @@map("lips")
 }
+
 model Lip2LipType {
   lip       Lip     @relation(fields: [lipId], references: [id])
   lipId     String  @map("lip_id") @db.VarChar(100)
@@ -79,6 +80,7 @@ model Lip2LipType {
   @@id([lipId, lipTypeId])
   @@map("lip_lipType")
 }
+
 model LipType {
   id   String        @id @default(cuid())
   name String        @unique @db.VarChar(20)
@@ -99,6 +101,7 @@ model Perfume {
 
   @@map("perfumes")
 }
+
 model Perfume2PerfumeType {
   perfume       Perfume     @relation(fields: [perfumeId], references: [id])
   perfumeId     String      @map("perfume_id") @db.VarChar(100)
@@ -108,6 +111,7 @@ model Perfume2PerfumeType {
   @@id([perfumeId, perfumeTypeId])
   @@map("perfume_perfumeType")
 }
+
 model PerfumeType {
   id       String                @id @default(cuid())
   name     String                @unique @db.VarChar(20)
@@ -128,6 +132,7 @@ model Skin {
 
   @@map("skins")
 }
+
 model Skin2SkinType {
   skin       Skin     @relation(fields: [skinId], references: [id])
   skinId     String   @map("skin_id") @db.VarChar(100)
@@ -137,6 +142,7 @@ model Skin2SkinType {
   @@id([skinId, skinTypeId])
   @@map("skin_skinType")
 }
+
 model SkinType {
   id    String          @id @default(cuid())
   name  String          @unique @db.VarChar(20)
@@ -157,6 +163,7 @@ model Hair {
 
   @@map("hairs")
 }
+
 model Hair2HairType {
   hair       Hair     @relation(fields: [hairId], references: [id])
   hairId     String   @map("hair_id") @db.VarChar(100)
@@ -166,10 +173,26 @@ model Hair2HairType {
   @@id([hairId, hairTypeId])
   @@map("hair_hairType")
 }
+
 model HairType {
   id    String          @id @default(cuid())
   name  String          @unique @db.VarChar(20)
   hairs Hair2HairType[]
 
   @@map("hairTypes")
+}
+
+model Questionnaires {
+  id        String    @id @default(cuid())
+  userId    String
+  agreement Int?
+  feeling   Int?
+  date      String?   @db.VarChar(100)
+  lip       Boolean?  @default(false)
+  eye       Boolean?  @default(false)
+  hair      Boolean?  @default(false)
+  perfume   Boolean?  @default(false)
+  skin      Boolean?  @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

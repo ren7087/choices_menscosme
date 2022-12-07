@@ -1,4 +1,5 @@
 import { objectType, extendType } from "nexus";
+import { Questionnaires } from "./Questionnaires";
 
 export const User = objectType({
   name: "User",

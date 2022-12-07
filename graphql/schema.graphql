@@ -2,8 +2,25 @@
 ### Do not make changes to this file directly
 
 
+type Mutation {
+  createQuestionnaires(agreement: Int!, date: String!, eye: Boolean!, feeling: Int!, hair: Boolean!, lip: Boolean!, perfume: Boolean!, skin: Boolean!, userId: String!): Questionnaires!
+}
+
 type Query {
   users: [User]!
+}
+
+type Questionnaires {
+  agreement: Int!
+  date: String!
+  eye: Boolean!
+  feeling: Int!
+  hair: Boolean!
+  id: String!
+  lip: Boolean!
+  perfume: Boolean!
+  skin: Boolean!
+  userId: String!
 }
 
 type User {

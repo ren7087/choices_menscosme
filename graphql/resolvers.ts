@@ -6,9 +6,11 @@ interface Context {
 
 export const resolvers = {
   Query: {
-    hello: () => "Hello World",
     users: async (parent: undefined, args: {}, ctx: Context) => {
       return await ctx.prisma.user.findMany();
+    },
+    questionnaires: async (parent: undefined, args: any, ctx: Context) => {
+      return await ctx.prisma.questionnaires.create(args);
     },
   },
 };

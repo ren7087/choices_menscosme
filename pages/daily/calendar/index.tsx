@@ -35,7 +35,7 @@ const Index = () => {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {["DB", "Calendar", "Submit", "TOPへ戻る"].map((text, index) => (
+            {["DB", "Calendar", "Register", "TOPへ戻る"].map((text, index) => (
               <ListItem key={text} disablePadding>
                 {index % 4 === 0 && (
                   <ListItemButton
