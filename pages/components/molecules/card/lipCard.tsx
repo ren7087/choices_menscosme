@@ -12,7 +12,7 @@ type Props = {
   color?: string;
   borderRadius?: string;
   width?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  border?: any;
 };
 
 /**
@@ -27,8 +27,16 @@ const LipCard: FC<Props> = (props) => {
     fontWeight,
     borderRadius,
     width,
-    onClick,
+    border = "0px",
   } = props;
+
+  const selectedStyle = {
+    borderRadius: "20px",
+    backgroundColor: "#F6E7E0",
+    width: "auto",
+    margin: "5%",
+    border,
+  };
 
   const imageStyle = {
     borderRadius,
@@ -43,18 +51,7 @@ const LipCard: FC<Props> = (props) => {
   };
 
   return (
-    <Card
-      sx={{ maxWidth: 400 }}
-      style={{
-        borderRadius: "20px",
-        backgroundColor: "#F6E7E0",
-        width: "auto",
-        margin: "5%",
-      }}
-      onClick={() => {
-        setLip(true);
-      }}
-    >
+    <Card sx={{ maxWidth: 400 }} style={selectedStyle}>
       <CardActionArea>
         <Image
           src={"/img/category/lip.png"}

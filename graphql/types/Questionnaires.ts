@@ -1,6 +1,7 @@
 import {
   objectType,
   extendType,
+  queryField,
   stringArg,
   booleanArg,
   intArg,
@@ -55,6 +56,47 @@ export const CreateQuestionnairesMutation = extendType({
             skin: args.skin,
           },
         });
+      },
+    });
+  },
+});
+
+// export const QuestionnairesQuery = extendType({
+//   type: "Query",
+//   definition(t: any) {
+//     t.nonNull.list.field("findQuestionnaires", {
+//       type: "Questionnaires",
+//       args: {
+//         userId: "1",
+//       },
+//       resolve(parent: undefined, args: any, ctx: any) {
+//         return ctx.prisma.questionnaires.find({
+//           where: {
+//             id: args.userId,
+//           },
+//         });
+//       },
+//     });
+//   },
+// });
+
+// export const QuestionnairesQuery = queryField("Questionnaires", {
+//   type: "Questionnaires",
+//   args: {
+//     userId: nonNull(stringArg()),
+//   },
+//   resolve(_parent, args: any, ctx) {
+//     return ctx.prisma.questionnaires.findUnique({ where: { id: args.userId } });
+//   },
+// });
+
+export const QuestionnairesQueryAll = extendType({
+  type: "Query",
+  definition(t: any) {
+    t.nonNull.list.field("questionnairesFindAll", {
+      type: "Questionnaires",
+      resolve(parent: undefined, args: {}, ctx: any) {
+        return ctx.prisma.questionnaires.findMany();
       },
     });
   },

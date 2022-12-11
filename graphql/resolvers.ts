@@ -9,8 +9,19 @@ export const resolvers = {
     users: async (parent: undefined, args: {}, ctx: Context) => {
       return await ctx.prisma.user.findMany();
     },
-    questionnaires: async (parent: undefined, args: any, ctx: Context) => {
+    questionnairesCreate: async (
+      parent: undefined,
+      args: any,
+      ctx: Context
+    ) => {
       return await ctx.prisma.questionnaires.create(args);
+    },
+    questionnairesFindAll: async (
+      parent: undefined,
+      args: any,
+      ctx: Context
+    ) => {
+      return await ctx.prisma.questionnaires.findMany();
     },
   },
 };

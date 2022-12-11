@@ -12,7 +12,7 @@ type Props = {
   color?: string;
   borderRadius?: string;
   width?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  border: any;
 };
 
 /**
@@ -27,8 +27,16 @@ const EyeCard: FC<Props> = (props) => {
     fontWeight,
     borderRadius,
     width,
-    onClick,
+    border,
   } = props;
+
+  const selectedStyle = {
+    borderRadius: "20px",
+    backgroundColor: "#F8DFD2",
+    width: "auto",
+    margin: "5%",
+    border,
+  };
 
   const imageStyle = {
     borderRadius,
@@ -43,15 +51,7 @@ const EyeCard: FC<Props> = (props) => {
   };
 
   return (
-    <Card
-      sx={{ maxWidth: 800 }}
-      style={{
-        borderRadius: "20px",
-        backgroundColor: "#F8DFD2",
-        width: "auto",
-        margin: "5%",
-      }}
-    >
+    <Card sx={{ maxWidth: 800 }} style={selectedStyle}>
       <CardActionArea>
         <Image
           src={"/img/category/eye.png"}

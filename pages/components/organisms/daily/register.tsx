@@ -21,42 +21,7 @@ import { DatePickerOriginal } from "../../molecules/datePickerOriginal";
 
 import { gql, useMutation } from "@apollo/client";
 
-const CreateQuestionnairesMutation = gql`
-  mutation createQuestionnaires(
-    $agreement: Int!
-    $userId: String!
-    $feeling: Int!
-    $date: String!
-    $lip: Boolean!
-    $eye: Boolean!
-    $hair: Boolean!
-    $perfume: Boolean!
-    $skin: Boolean!
-  ) {
-    createQuestionnaires(
-      agreement: $agreement
-      userId: $userId
-      feeling: $feeling
-      date: $date
-      lip: $lip
-      eye: $eye
-      hair: $hair
-      perfume: $perfume
-      skin: $skin
-    ) {
-      id
-      agreement
-      userId
-      feeling
-      date
-      lip
-      eye
-      hair
-      perfume
-      skin
-    }
-  }
-`;
+import { CreateQuestionnairesMutation } from "../../../../queries/queries";
 
 const Register = () => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -109,6 +74,8 @@ const Register = () => {
   const handleChangeFeeling = (newFeeling: any) => {
     setFeeling(newFeeling);
   };
+
+  console.log(lip);
   return (
     <div
       style={{ margin: "3%", width: "90%", height: "100%", marginTop: "10px" }}
@@ -208,63 +175,123 @@ const Register = () => {
               style={{ backgroundColor: "#f7f7f7" }}
             >
               <Grid item xs={2.4}>
-                <Item style={{ boxShadow: "none" }}>
-                  <LipCard
-                    textAlign={"center"}
-                    marginTop={"-30px"}
-                    fontWeight={"bold"}
-                    onClick={() => {
-                      setLip(true);
-                    }}
-                  />
+                <Item
+                  style={{ boxShadow: "none" }}
+                  onClick={() => {
+                    setLip(!lip);
+                  }}
+                >
+                  {lip === true ? (
+                    <LipCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"0px"}
+                    />
+                  ) : (
+                    <LipCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"3px solid red"}
+                    />
+                  )}
                 </Item>
               </Grid>
               <Grid item xs={2.4}>
-                <Item style={{ boxShadow: "none" }}>
-                  <EyeCard
-                    textAlign={"center"}
-                    marginTop={"-30px"}
-                    fontWeight={"bold"}
-                    onClick={() => {
-                      setEye(true);
-                    }}
-                  />
+                <Item
+                  style={{ boxShadow: "none" }}
+                  onClick={() => {
+                    setEye(!eye);
+                  }}
+                >
+                  {eye === true ? (
+                    <EyeCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"0px"}
+                    />
+                  ) : (
+                    <EyeCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"3px solid red"}
+                    />
+                  )}
                 </Item>
               </Grid>
               <Grid item xs={2.4}>
-                <Item style={{ boxShadow: "none" }}>
-                  <HairCard
-                    textAlign={"center"}
-                    marginTop={"-30px"}
-                    fontWeight={"bold"}
-                    onClick={() => {
-                      setHair(true);
-                    }}
-                  />
+                <Item
+                  style={{ boxShadow: "none" }}
+                  onClick={() => {
+                    setHair(!hair);
+                  }}
+                >
+                  {hair === true ? (
+                    <HairCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"0px"}
+                    />
+                  ) : (
+                    <HairCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"3px solid red"}
+                    />
+                  )}
                 </Item>
               </Grid>
               <Grid item xs={2.4}>
-                <Item style={{ boxShadow: "none" }}>
-                  <PerfumeCard
-                    textAlign={"center"}
-                    marginTop={"-30px"}
-                    fontWeight={"bold"}
-                    onClick={() => {
-                      setPerfume(true);
-                    }}
-                  />
+                <Item
+                  style={{ boxShadow: "none" }}
+                  onClick={() => {
+                    setPerfume(!perfume);
+                  }}
+                >
+                  {perfume === true ? (
+                    <PerfumeCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"0px"}
+                    />
+                  ) : (
+                    <PerfumeCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"3px solid red"}
+                    />
+                  )}
                 </Item>
               </Grid>
               <Grid item xs={2.4}>
-                <Item style={{ boxShadow: "none" }}>
-                  <SkinCard
-                    textAlign={"center"}
-                    marginTop={"-30px"}
-                    fontWeight={"bold"}
-                    onClick={() => {
-                      setSkin(true);
-                    }}
-                  />
+                <Item
+                  style={{ boxShadow: "none" }}
+                  onClick={() => {
+                    setSkin(!skin);
+                  }}
+                >
+                  {skin === true ? (
+                    <SkinCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"0px"}
+                    />
+                  ) : (
+                    <SkinCard
+                      textAlign={"center"}
+                      marginTop={"-30px"}
+                      fontWeight={"bold"}
+                      border={"3px solid red"}
+                    />
+                  )}
                 </Item>
               </Grid>
             </Grid>
