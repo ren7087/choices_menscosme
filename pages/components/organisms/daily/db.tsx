@@ -27,11 +27,6 @@ const Db = () => {
               textAlign={"center"}
               marginTop={"-30px"}
               fontWeight={"bold"}
-              onClick={function (
-                event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
             />
           </Item>
         </Grid>
@@ -41,11 +36,6 @@ const Db = () => {
               textAlign={"center"}
               marginTop={"-30px"}
               fontWeight={"bold"}
-              onClick={function (
-                event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
             />
           </Item>
         </Grid>
@@ -55,11 +45,6 @@ const Db = () => {
               textAlign={"center"}
               marginTop={"-30px"}
               fontWeight={"bold"}
-              onClick={function (
-                event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
             />
           </Item>
         </Grid>
@@ -69,11 +54,6 @@ const Db = () => {
               textAlign={"center"}
               marginTop={"-30px"}
               fontWeight={"bold"}
-              onClick={function (
-                event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
             />
           </Item>
         </Grid>
@@ -83,11 +63,6 @@ const Db = () => {
               textAlign={"center"}
               marginTop={"-30px"}
               fontWeight={"bold"}
-              onClick={function (
-                event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
             />
           </Item>
         </Grid>

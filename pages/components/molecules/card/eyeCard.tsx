@@ -12,7 +12,7 @@ type Props = {
   color?: string;
   borderRadius?: string;
   width?: string;
-  border: any;
+  border?: any;
 };
 
 /**
@@ -27,7 +27,7 @@ const EyeCard: FC<Props> = (props) => {
     fontWeight,
     borderRadius,
     width,
-    border,
+    border = "0px",
   } = props;
 
   const selectedStyle = {
@@ -43,7 +43,7 @@ const EyeCard: FC<Props> = (props) => {
     width,
   };
 
-  const fontStyle = {
+  const fontStyle: any = {
     fontWeight,
     marginTop,
     textAlign,

@@ -43,7 +43,7 @@ const LipCard: FC<Props> = (props) => {
     width,
   };
 
-  const fontStyle = {
+  const fontStyle: any = {
     fontWeight,
     marginTop,
     textAlign,

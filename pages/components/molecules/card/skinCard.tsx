@@ -27,7 +27,7 @@ const SkinCard: FC<Props> = (props) => {
     fontWeight,
     borderRadius,
     width,
-    border,
+    border = "0px",
   } = props;
 
   const selectedStyle = {
@@ -43,7 +43,7 @@ const SkinCard: FC<Props> = (props) => {
     width,
   };
 
-  const fontStyle = {
+  const fontStyle: any = {
     fontWeight,
     marginTop,
     textAlign,
