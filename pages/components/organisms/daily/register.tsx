@@ -183,14 +183,12 @@ const Register = () => {
                 >
                   {lip === true ? (
                     <LipCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"0px"}
                     />
                   ) : (
                     <LipCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"3px solid red"}
@@ -207,14 +205,12 @@ const Register = () => {
                 >
                   {eye === true ? (
                     <EyeCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"0px"}
                     />
                   ) : (
                     <EyeCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"3px solid red"}
@@ -231,14 +227,12 @@ const Register = () => {
                 >
                   {hair === true ? (
                     <HairCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"0px"}
                     />
                   ) : (
                     <HairCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"3px solid red"}
@@ -255,14 +249,12 @@ const Register = () => {
                 >
                   {perfume === true ? (
                     <PerfumeCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"0px"}
                     />
                   ) : (
                     <PerfumeCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"3px solid red"}
@@ -279,14 +271,12 @@ const Register = () => {
                 >
                   {skin === true ? (
                     <SkinCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"0px"}
                     />
                   ) : (
                     <SkinCard
-                      textAlign={"center"}
                       marginTop={"-30px"}
                       fontWeight={"bold"}
                       border={"3px solid red"}

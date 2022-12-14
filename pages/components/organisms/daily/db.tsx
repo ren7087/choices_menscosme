@@ -23,47 +23,27 @@ const Db = () => {
       <Grid container spacing={2}>
         <Grid item xs={2.4}>
           <Item style={{ boxShadow: "none" }}>
-            <LipCard
-              textAlign={"center"}
-              marginTop={"-30px"}
-              fontWeight={"bold"}
-            />
+            <LipCard marginTop={"-30px"} fontWeight={"bold"} />
           </Item>
         </Grid>
         <Grid item xs={2.4}>
           <Item style={{ boxShadow: "none" }}>
-            <EyeCard
-              textAlign={"center"}
-              marginTop={"-30px"}
-              fontWeight={"bold"}
-            />
+            <EyeCard marginTop={"-30px"} fontWeight={"bold"} />
           </Item>
         </Grid>
         <Grid item xs={2.4}>
           <Item style={{ boxShadow: "none" }}>
-            <HairCard
-              textAlign={"center"}
-              marginTop={"-30px"}
-              fontWeight={"bold"}
-            />
+            <HairCard marginTop={"-30px"} fontWeight={"bold"} />
           </Item>
         </Grid>
         <Grid item xs={2.4}>
           <Item style={{ boxShadow: "none" }}>
-            <PerfumeCard
-              textAlign={"center"}
-              marginTop={"-30px"}
-              fontWeight={"bold"}
-            />
+            <PerfumeCard marginTop={"-30px"} fontWeight={"bold"} />
           </Item>
         </Grid>
         <Grid item xs={2.4}>
           <Item style={{ boxShadow: "none" }}>
-            <SkinCard
-              textAlign={"center"}
-              marginTop={"-30px"}
-              fontWeight={"bold"}
-            />
+            <SkinCard marginTop={"-30px"} fontWeight={"bold"} />
           </Item>
         </Grid>
       </Grid>

@@ -5,9 +5,7 @@ import { MouseEventHandler, useMemo } from "react";
 import { FC } from "react";
 
 type Props = {
-  textAlign?: string;
   marginTop?: string;
-  marginLeft?: string;
   fontWeight?: string;
   color?: string;
   borderRadius?: string;
@@ -21,9 +19,7 @@ type Props = {
 const LipCard: FC<Props> = (props) => {
   const {
     color = "#fff",
-    textAlign,
     marginTop,
-    marginLeft,
     fontWeight,
     borderRadius,
     width,
@@ -46,7 +42,6 @@ const LipCard: FC<Props> = (props) => {
   const fontStyle: any = {
     fontWeight,
     marginTop,
-    textAlign,
     color,
   };
 
