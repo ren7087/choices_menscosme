@@ -17,7 +17,7 @@ import SkinCard from "../../molecules/card/skinCard";
 import SendIcon from "@mui/icons-material/Send";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { DatePickerOriginal } from "../../molecules/datePickerOriginal";
+import DatePickerOriginal from "../../molecules/datePickerOriginal";
 
 import { gql, useMutation } from "@apollo/client";
 

@@ -7,8 +7,8 @@ import HairCard from "../../molecules/card/hairCard";
 import PerfumeCard from "../../molecules/card/perfumeCard";
 import SkinCard from "../../molecules/card/skinCard";
 import { Box } from "@mui/system";
-import { ChartCircle } from "../chartCircle";
-import { ChartLine } from "../chartLine";
+import ChartCircle from "../chartCircle";
+import ChartLine from "../chartLine";
 
 const Db = () => {
   const Item = styled(Paper)(({ theme }) => ({

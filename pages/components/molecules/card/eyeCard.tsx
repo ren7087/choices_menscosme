@@ -61,6 +61,7 @@ const EyeCard: FC<Props> = (props) => {
           style={imageStyle}
         />
         <CardContent>
+          {/* TODO styleの型anyやめる */}
           <Typography gutterBottom variant="h5" style={fontStyle}>
             Eye
           </Typography>

@@ -5,7 +5,7 @@ import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import ja from "date-fns/locale/ja";
 
-export function DatePickerOriginal(props: any) {
+const DatePickerOriginal = (props: any) => {
   const [value, setValue] = React.useState<Date | null>(null);
   props.setDate(value);
 
@@ -33,7 +33,7 @@ export function DatePickerOriginal(props: any) {
       </Box>
     </LocalizationProvider>
   );
-}
+};
 
 const styles = {
   paperprops: {
@@ -75,3 +75,5 @@ const styles = {
     },
   },
 };
+
+export default DatePickerOriginal;

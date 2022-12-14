@@ -4,7 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import { supabase } from "../../../utils/supabaseClient";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export function ChartCircle() {
+export default function ChartCircle() {
   const [recordsLip, setRecordsLip] = useState<[]>([]);
   const [recordsEye, setRecordsEye] = useState<[]>([]);
   const [recordsHair, setRecordsHair] = useState([]);

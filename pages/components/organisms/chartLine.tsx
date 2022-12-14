@@ -31,6 +31,6 @@ export const data = {
   ],
 };
 
-export function ChartLine() {
+export default function ChartLine() {
   return <Doughnut data={data} style={{ width: "50%" }} />;
 }
