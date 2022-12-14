@@ -7,7 +7,6 @@ import ja from "date-fns/locale/ja";
 
 const DatePickerOriginal = (props: any) => {
   const [value, setValue] = React.useState<Date | null>(null);
-  props.setDate(value);
 
   const handleChange = (newValue: Date | null) => {
     setValue(newValue);

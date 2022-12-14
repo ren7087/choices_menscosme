@@ -155,7 +155,7 @@ const Register = () => {
               </div>
             </div>
             <div style={{ width: "50%", marginTop: "5%" }}>
-              <DatePickerOriginal setDate={setDate} />
+              <DatePickerOriginal />
             </div>
           </div>
           <div>
