@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,7 +16,7 @@ import Db from "../components/organisms/daily/db";
 
 const drawerWidth = 200;
 
-const Index = () => {
+const Index = memo(() => {
   const router = useRouter();
   return (
     <Box sx={{ display: "flex" }}>
@@ -97,6 +97,7 @@ const Index = () => {
       <Db />
     </Box>
   );
-};
+});
 
 export default Index;
+Index.displayName = "Index";
