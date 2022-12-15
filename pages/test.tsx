@@ -20,8 +20,9 @@ const useFetchData = () => {
       .get(
         // envは後述
         `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?
-	  applicationId=1047547279811101390
-	  &keyword=魚`
+		applicationId=1047547279811101390
+		&keyword=4895248805373
+		&hits=1`
       )
       .then((response) => {
         // レスポンスデータを格納
