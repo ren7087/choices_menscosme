@@ -17,7 +17,7 @@ type CameraDeviceInfo = {
   name: string;
 };
 
-export const QrCodeReader: FC<QrCodeReaderProps> = ({ onRead, setOpen }) => {
+const QrCodeReader: FC<QrCodeReaderProps> = ({ onRead, setOpen }) => {
   const theme = useTheme();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const mountedRef = useRef<boolean>(false);
@@ -119,3 +119,5 @@ export const QrCodeReader: FC<QrCodeReaderProps> = ({ onRead, setOpen }) => {
     </div>
   );
 };
+
+export default QrCodeReader;

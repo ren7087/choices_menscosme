@@ -1,6 +1,6 @@
 import { Button, Container } from "@mui/material";
 import { useState } from "react";
-import { QrCodeReader } from "./scan";
+import QrCodeReader from "./scan";
 
 export default function Index(): JSX.Element {
   const [isOpenQRCamera, setIsOpenQRCamera] = useState<boolean>(false);
