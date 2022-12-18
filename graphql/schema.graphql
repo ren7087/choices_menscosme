@@ -4,11 +4,13 @@
 
 type Mutation {
   createQuestionnaires(agreement: Int!, date: String!, eye: Boolean!, feeling: Int!, hair: Boolean!, lip: Boolean!, perfume: Boolean!, skin: Boolean!, userId: String!): Questionnaires!
+  createYourLip(jas: String!, memo: String!, title: String!, url: String!, userId: String!): YourLip!
 }
 
 type Query {
   questionnairesFindAll: [Questionnaires]!
   users: [User]!
+  yourLips: [YourLip]!
 }
 
 type Questionnaires {
@@ -30,4 +32,13 @@ type User {
   id: String!
   image: String!
   name: String!
+}
+
+type YourLip {
+  id: String!
+  jas: String!
+  memo: String!
+  title: String!
+  url: String!
+  userId: String!
 }

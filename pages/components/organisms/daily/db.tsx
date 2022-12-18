@@ -9,6 +9,11 @@ import SkinCard from "../../molecules/card/skinCard";
 import { Box } from "@mui/system";
 import ChartCircle from "../chartCircle";
 import ChartLine from "../chartLine";
+import Router from "next/router";
+
+const handler = (path: string) => {
+  Router.push(path);
+};
 
 const Db = () => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -22,7 +27,10 @@ const Db = () => {
     <div style={{ textAlign: "center", margin: "auto", marginTop: "30px" }}>
       <Grid container spacing={2}>
         <Grid item xs={2.4}>
-          <Item style={{ boxShadow: "none" }}>
+          <Item
+            style={{ boxShadow: "none" }}
+            onClick={() => handler("/daily/lip")}
+          >
             <LipCard marginTop={"-30px"} fontWeight={"bold"} />
           </Item>
         </Grid>

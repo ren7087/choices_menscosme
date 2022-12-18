@@ -71,3 +71,39 @@ export const QuestionnairesQueryAll = gql`
     }
   }
 `;
+
+export const YourLipQuery = gql`
+  query yourLips {
+    yourLips {
+      id
+      title
+      url
+      memo
+    }
+  }
+`;
+
+export const CreateYourLipMutation = gql`
+  mutation createYourLip(
+    $userId: String!
+    $title: String!
+    $jas: String!
+    $memo: String!
+    $url: String!
+  ) {
+    createYourLip(
+      userId: $userId
+      title: $title
+      jas: $jas
+      memo: $memo
+      url: $url
+    ) {
+      id
+      userId
+      title
+      jas
+      memo
+      url
+    }
+  }
+`;

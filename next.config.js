@@ -12,4 +12,7 @@ const withTM = require("next-transpile-modules")([
 
 module.exports = withTM({
   nextConfig,
+  images: {
+    domains: ["thumbnail.image.rakuten.co.jp"],
+  },
 });

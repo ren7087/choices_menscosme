@@ -48,6 +48,11 @@ model User {
   accounts       Account[]
   sessions       Session[]
   questionnaires Questionnaires[]
+  yourLip        YourLip[]
+  yourEye        YourEye[]
+  yourHair       YourHair[]
+  yourPerfume    YourPerfume[]
+  yourSkin       YourSkin[]
 }
 
 model VerificationToken {
@@ -183,16 +188,71 @@ model HairType {
 }
 
 model Questionnaires {
-  id        String    @id @default(cuid())
+  id        String   @id @default(cuid())
   userId    String
   agreement Int?
   feeling   Int?
-  date      String?   @db.VarChar(100)
-  lip       Boolean?  @default(false)
-  eye       Boolean?  @default(false)
-  hair      Boolean?  @default(false)
-  perfume   Boolean?  @default(false)
-  skin      Boolean?  @default(false)
+  date      String?  @db.VarChar(100)
+  lip       Boolean? @default(false)
+  eye       Boolean? @default(false)
+  hair      Boolean? @default(false)
+  perfume   Boolean? @default(false)
+  skin      Boolean? @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model YourLip {
+  id     String  @id @default(cuid())
+  userId String
+  title  String?
+  jas    String?
+  url    String?
+  memo   String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model YourEye {
+  id     String  @id @default(cuid())
+  userId String
+  title  String?
+  jas    String?
+  url    String?
+  memo   String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model YourHair {
+  id     String  @id @default(cuid())
+  userId String
+  title  String?
+  jas    String?
+  url    String?
+  memo   String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model YourPerfume {
+  id     String  @id @default(cuid())
+  userId String
+  title  String?
+  jas    String?
+  url    String?
+  memo   String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model YourSkin {
+  id     String  @id @default(cuid())
+  userId String
+  title  String?
+  jas    String?
+  url    String?
+  memo   String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
